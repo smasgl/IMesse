@@ -16,4 +16,4 @@ for filename in os.listdir(folder):
     except Exception as e:
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 copy_tree(world, folder)
-os.system(f"open {desktop}")
+os.system(f"xdg-open {desktop}")
