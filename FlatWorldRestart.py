@@ -1,4 +1,6 @@
-import os, shutil
+import os
+import shutil
+from distutils.dir_util import copy_tree
 
 world = r'/home/pi/Desktop/FlatWorld'
 folder = r'/home/pi/.minecraft/games/com.mojang/minecraftWorlds/'
@@ -12,4 +14,4 @@ for filename in os.listdir(folder):
             shutil.rmtree(file_path)
     except Exception as e:
         print('Failed to delete %s. Reason: %s' % (file_path, e))
-shutil.copytree(world, folder)
+copy_tree(world, folder)
