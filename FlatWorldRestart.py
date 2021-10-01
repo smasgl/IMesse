@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import shutil
 from distutils.dir_util import copy_tree
