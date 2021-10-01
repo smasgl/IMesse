@@ -2,6 +2,8 @@
 
 import os
 import shutil
+import pyautogui
+import time
 from distutils.dir_util import copy_tree
 
 world = r'/home/pi/Documents/GitHub/IMesse/FlatWorld'
@@ -19,3 +21,10 @@ for filename in os.listdir(folder):
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 copy_tree(world, folder)
 os.system(f"xdg-open {desktop}")
+
+screenWidth, screenHeight = pyautogui.size()
+
+pyautogui.click(screenWidth/2, screenHeight/2)
+time.sleep(0.1)
+pyautogui.click(screenWidth/2, screenHeight/2)
+pyautogui.click(screenWidth/2, screenHeight/2)
