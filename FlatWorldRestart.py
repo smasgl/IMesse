@@ -21,10 +21,9 @@ for filename in os.listdir(folder):
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 copy_tree(world, folder)
 os.system(f"xdg-open {desktop}")
-
 screenWidth, screenHeight = pyautogui.size()
-
-pyautogui.click(screenWidth/2, screenHeight/2)
+pyautogui.moveTo(screenWidth/2+20, screenHeight/2+20)
+time.sleep(0.3)
+pyautogui.press('enter')
 time.sleep(0.1)
-pyautogui.click(screenWidth/2, screenHeight/2)
-pyautogui.click(screenWidth/2, screenHeight/2)
+pyautogui.press('enter')
