@@ -3,7 +3,7 @@ import shutil
 from distutils.dir_util import copy_tree
 
 world = r'/home/pi/Desktop/FlatWorld'
-folder = r'/home/pi/.minecraft/games/com.mojang/minecraftWorlds/'
+folder = r'/home/pi/.minecraft/games/com.mojang/minecraftWorlds'
 
 for filename in os.listdir(folder):
     file_path = os.path.join(folder, filename)
