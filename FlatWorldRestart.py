@@ -23,7 +23,7 @@ for filename in os.listdir(folder):
     except Exception as e:
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 copy_tree(world, folder)
-screen = Wnck.Screen_get_default()
+screen = Wnck.Screen.get_default()
 screen.force_update()
 windows = screen.get_windows()
 for w in windows:
@@ -31,11 +31,9 @@ for w in windows:
         w.close(0)
     else:
         w.minimize()
-time.sleep(1)
 os.system(f"xdg-open {desktop}")
 screenWidth, screenHeight = pyautogui.size()
 pyautogui.moveTo(screenWidth/2+20, screenHeight/2+20)
-time.sleep(0.3)
+time.sleep(0.5)
 pyautogui.press('enter')
-time.sleep(0.1)
 pyautogui.press('enter')
