@@ -4,6 +4,7 @@ import os
 import shutil
 import pyautogui
 import time
+import wnck
 from distutils.dir_util import copy_tree
 
 world = r'/home/pi/Documents/GitHub/IMesse/FlatWorld'
@@ -20,6 +21,14 @@ for filename in os.listdir(folder):
     except Exception as e:
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 copy_tree(world, folder)
+screen = wnck.screen_get_default()
+screen.force_update()
+windows = screen.get_windows()
+for w in windows:
+    if 'Minecraft' in w.get_name():
+        w.minimize()
+    else:
+        w.close()
 os.system(f"xdg-open {desktop}")
 screenWidth, screenHeight = pyautogui.size()
 pyautogui.moveTo(screenWidth/2+20, screenHeight/2+20)
