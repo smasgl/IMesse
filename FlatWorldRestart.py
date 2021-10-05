@@ -1,18 +1,22 @@
 #!/usr/bin/env python
 
 import os
+import sys
 import shutil
-import pyautogui
+from pynput.keyboard import Key, Controller, Listener
 import time
 from distutils.dir_util import copy_tree
-import gi
-gi.require_version('Wnck', '3.0')
-from gi.repository import Wnck
 
 world = r'/home/pi/Documents/GitHub/IMesse/FlatWorld'
 folder = r'/home/pi/.minecraft/games/com.mojang/minecraftWorlds'
 desktop = r'/usr/share/raspi-ui-overrides/applications/minecraft-pi.desktop'
+windowScript = r'/home/pi/Documents/GitHub/IMesse/CloseWindows.py'
 
+def on_press(key):
+    if key == Key.esc:
+        os.system(f"python3 {windowScript}")
+        return False
+os.system(f"python3 {windowScript}")
 for filename in os.listdir(folder):
     file_path = os.path.join(folder, filename)
     try:
@@ -23,17 +27,20 @@ for filename in os.listdir(folder):
     except Exception as e:
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 copy_tree(world, folder)
-screen = Wnck.Screen.get_default()
-screen.force_update()
-windows = screen.get_windows()
-for w in windows:
-    if 'Minecraft' in w.get_name():
-        w.close(0)
-    else:
-        w.minimize()
 os.system(f"xdg-open {desktop}")
-screenWidth, screenHeight = pyautogui.size()
-pyautogui.moveTo(screenWidth/2+20, screenHeight/2+20)
-time.sleep(0.5)
-pyautogui.press('enter')
-pyautogui.press('enter')
+keyboard = Controller()
+time.sleep(0.4)
+keyboard.press(Key.enter)
+keyboard.release(Key.enter)
+time.sleep(0.2)
+keyboard.press(Key.enter)
+keyboard.release(Key.enter)
+keyboard.press(Key.alt)
+keyboard.press(Key.f11)
+keyboard.release(Key.f11)
+keyboard.release(Key.alt)
+
+with Listener(
+        on_press=on_press) as listener:
+    listener.join()
+    
