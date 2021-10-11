@@ -13,34 +13,43 @@ desktop = r'/usr/share/raspi-ui-overrides/applications/minecraft-pi.desktop'
 windowScript = r'/home/pi/Documents/GitHub/IMesse/CloseWindows.py'
 
 def on_press(key):
+    keyboard = Controller()
     if key == Key.esc:
+        time.sleep(0.05)
+        keyboard.press(Key.alt)
+        keyboard.press(Key.f4)
+        keyboard.release(Key.f4)
+        keyboard.release(Key.alt)
         os.system(f"python3 {windowScript}")
         return False
-os.system(f"python3 {windowScript}")
-for filename in os.listdir(folder):
-    file_path = os.path.join(folder, filename)
-    try:
-        if os.path.isfile(file_path) or os.path.islink(file_path):
-            os.unlink(file_path)
-        elif os.path.isdir(file_path):
-            shutil.rmtree(file_path)
-    except Exception as e:
-        print('Failed to delete %s. Reason: %s' % (file_path, e))
-copy_tree(world, folder)
-os.system(f"xdg-open {desktop}")
-keyboard = Controller()
-time.sleep(0.4)
-keyboard.press(Key.enter)
-keyboard.release(Key.enter)
-time.sleep(0.2)
-keyboard.press(Key.enter)
-keyboard.release(Key.enter)
-keyboard.press(Key.alt)
-keyboard.press(Key.f11)
-keyboard.release(Key.f11)
-keyboard.release(Key.alt)
-
-with Listener(
-        on_press=on_press) as listener:
-    listener.join()
     
+def execute_script():
+    keyboard = Controller()
+    os.system(f"python3 {windowScript}")
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
+    copy_tree(world, folder)
+    os.system(f"xdg-open {desktop}")
+    time.sleep(0.4)
+    keyboard.press(Key.enter)
+    keyboard.release(Key.enter)
+    time.sleep(0.2)
+    keyboard.press(Key.enter)
+    keyboard.release(Key.enter)
+    keyboard.press(Key.alt)
+    keyboard.press(Key.f11)
+    keyboard.release(Key.f11)
+    keyboard.release(Key.alt)
+
+    with Listener(
+            on_press=on_press) as listener:
+        listener.join()
+
+execute_script()
