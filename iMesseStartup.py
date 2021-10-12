@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
-import os
+import os, time
 from random import randint
 
 saves = r'/home/pi/Documents/GitHub/IMesse/Saves'
 iMesse = r'/home/pi/Documents/GitHub/IMesse'
 
+#os.system(f"xdg-open /usr/share/raspi-ui-overrides/applications/minecraft-pi.desktop")
+#time.sleep(0.5)
+#os.system(f"python3 {iMesse}/CloseWindows.py")
 os.system(f"rm {iMesse}/SavesLastProject.py")
 randomKey = randint(1000, 9999)
 while os.path.exists(f"{randomKey}.py"):

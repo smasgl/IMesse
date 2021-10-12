@@ -15,11 +15,6 @@ windowScript = r'/home/pi/Documents/GitHub/IMesse/CloseWindows.py'
 def on_press(key):
     keyboard = Controller()
     if key == Key.esc:
-        time.sleep(0.05)
-        keyboard.press(Key.alt)
-        keyboard.press(Key.f4)
-        keyboard.release(Key.f4)
-        keyboard.release(Key.alt)
         os.system(f"python3 {windowScript}")
         return False
     
