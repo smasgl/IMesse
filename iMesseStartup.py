@@ -5,6 +5,7 @@ from random import randint
 
 saves = r'/home/pi/Documents/GitHub/IMesse/Saves'
 
+os.system(f"rm SavesLastProject.py")
 randomKey = randint(1000, 9999)
 while os.path.exists(f"{randomKey}.py"):
     randomKey = randint(1000, 9999)
@@ -17,4 +18,8 @@ f.write(f'from mcpi.minecraft import Minecraft\n')
 f.write(f'mc = Minecraft.create()\n')
 f.write('mc.postToChat(f"Key: {os.path.basename(__file__)[:4]}")\n\n')
 f.close()
-os.system(f"thonny {saves}/{randomKey}.py")
+f = open(f"SavesLastProject.py", "w")
+f.write("import os\n")
+f.write(f'os.system(f"thonny {saves}/{randomKey}.py")')
+f.close()
+os.system(f"python3 SavesLastProject.py")
