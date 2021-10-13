@@ -10,6 +10,7 @@ os.system(f"rm {iMesse}/SavesLastProject.py")
 randomKey = randint(1000, 9999)
 while os.path.exists(f"{randomKey}.py"):
     randomKey = randint(1000, 9999)
+os.system(f"mkdir {saves}")
 f = open(f"{saves}/{randomKey}.py", "w")
 f.write("import os, time, threading\n")
 f.write(f'def sub_func(): os.system(f"cd ~ && python3 Documents/GitHub/IMesse/FlatWorldRestart.py")\n')
