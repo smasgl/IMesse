@@ -13,7 +13,7 @@ from gi.repository import Wnck
 world = r'/home/pi/Documents/GitHub/IMesse/FlatWorld'
 folder = r'/home/pi/.minecraft/games/com.mojang/minecraftWorlds'
 desktop = r'/usr/share/raspi-ui-overrides/applications/minecraft-pi.desktop'
-windowScript = r'/home/pi/Documents/GitHub/IMesse/CloseWindows.py'
+windowScript = r'/home/pi/Documents/GitHub/IMesse/CloseMcWindows.py'
     
 keyboard = Controller()
 os.system(f"python3 {windowScript}")
