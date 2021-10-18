@@ -6,9 +6,6 @@ import shutil
 from pynput.keyboard import Key, Controller, Listener
 import time
 from distutils.dir_util import copy_tree
-import gi
-gi.require_version('Wnck', '3.0')
-from gi.repository import Wnck
 
 world = r'/home/pi/Documents/GitHub/IMesse/FlatWorld'
 folder = r'/home/pi/.minecraft/games/com.mojang/minecraftWorlds'
@@ -28,17 +25,10 @@ for filename in os.listdir(folder):
     except Exception as e:
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 copy_tree(world, folder)
-time.sleep(0.7)
+time.sleep(1)
 keyboard.press(Key.enter)
 keyboard.release(Key.enter)
-time.sleep(0.2)
+time.sleep(0.5)
 keyboard.press(Key.enter)
 keyboard.release(Key.enter)
-screen = Wnck.Screen.get_default()
-screen.force_update()
-windows = screen.get_windows()
-for w in windows:
-    if 'Minecraft' in w.get_name():
-        w.maximize()
-        break
     
