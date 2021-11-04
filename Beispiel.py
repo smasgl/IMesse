@@ -1,6 +1,5 @@
 import pycraft
-
-pycraft.initialize()
+mc, block = pycraft.initialize()
 
 
 # # Beispiel Code

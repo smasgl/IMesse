@@ -12,9 +12,8 @@ def restart_flat_world_script():
 def initialize():
     threading.Thread(target=restart_flat_world_script).start()
     time.sleep(6)
-
     mc = Minecraft.create()
     mc.postToChat(f"Dies ist ein Beispiel Skript.")
-
+    return mc, block;
 
 

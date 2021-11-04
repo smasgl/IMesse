@@ -4,6 +4,7 @@
     <list default="true" id="65bdb366-b9c2-43dc-9d79-55c0c7f4105c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Beispiel.py" beforeDir="false" afterPath="$PROJECT_DIR$/Beispiel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pycraft.py" beforeDir="false" afterPath="$PROJECT_DIR$/pycraft.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
