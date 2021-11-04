@@ -20,46 +20,46 @@ def initialize(fileName):
 
 # WAND -------------------------------------------------------------------------------------
 
-def wand_norden(x, y, z, hoehe, laenge, block):
-    mc.setBlocks(x, y, z, x+laenge-1, y+hoehe-1, z, block)
+def wand_norden(x, y, z, hoehe, laenge, block, specific = 0):
+    mc.setBlocks(x, y, z, x+laenge-1, y+hoehe-1, z, block, specific)
     
-def wand_osten(x, y, z, hoehe, laenge, block):
-    mc.setBlocks(x, y, z, x, y+hoehe-1, z+laenge-1, block)
+def wand_osten(x, y, z, hoehe, laenge, block, specific = 0):
+    mc.setBlocks(x, y, z, x, y+hoehe-1, z+laenge-1, block, specific)
     
-def wand_sueden(x, y, z, hoehe, laenge, block):
-    mc.setBlocks(x, y, z, x-laenge+1, y+hoehe-1, z, block)
+def wand_sueden(x, y, z, hoehe, laenge, block, specific = 0):
+    mc.setBlocks(x, y, z, x-laenge+1, y+hoehe-1, z, block, specific)
     
-def wand_westen(x, y, z, hoehe, laenge, block):
-    mc.setBlocks(x, y, z, x, y+hoehe-1, z-laenge+1, block)
+def wand_westen(x, y, z, hoehe, laenge, block, specific = 0):
+    mc.setBlocks(x, y, z, x, y+hoehe-1, z-laenge+1, block, specific)
     
-def wand_norden_mit_fenster(x, y, z, hoehe, laenge, block):
-    wand_norden(x, y, z, hoehe, laenge, block)
+def wand_norden_mit_fenster(x, y, z, hoehe, laenge, block, specific = 0):
+    wand_norden(x, y, z, hoehe, laenge, block, specific)
     if hoehe >= 3:
         mc.setBlocks(x+1, y+1, z, x+laenge-2, y+hoehe-2, z, 20)
     
-def wand_osten_mit_fenster(x, y, z, hoehe, laenge, block):
-    wand_osten(x, y, z, hoehe, laenge, block)
+def wand_osten_mit_fenster(x, y, z, hoehe, laenge, block, specific = 0):
+    wand_osten(x, y, z, hoehe, laenge, block, specific)
     if hoehe >= 3:
         mc.setBlocks(x, y+1, z+1, x, y+hoehe-2, z+laenge-2, 20)
     
-def wand_sueden_mit_fenster(x, y, z, hoehe, laenge, block):
-    wand_sueden(x, y, z, hoehe, laenge, block)
+def wand_sueden_mit_fenster(x, y, z, hoehe, laenge, block, specific = 0):
+    wand_sueden(x, y, z, hoehe, laenge, block, specific)
     if hoehe >= 3:
         mc.setBlocks(x-1, y+1, z, x-laenge+2, y+hoehe-2, z, 20)
     
-def wand_westen_mit_fenster(x, y, z, hoehe, laenge, block):
-    wand_westen(x, y, z, hoehe, laenge, block)
+def wand_westen_mit_fenster(x, y, z, hoehe, laenge, block, specific = 0):
+    wand_westen(x, y, z, hoehe, laenge, block, specific)
     if hoehe >= 3:
         mc.setBlocks(x, y+1, z-1, x, y+hoehe-2, z-laenge+2, 20)
     
-def wand_rundum(x, y, z, hoehe, abstand, block):
-    mc.setBlocks(x-abstand, y, z-abstand, x-abstand, y+hoehe-1, z+abstand, block)
-    mc.setBlocks(x-abstand, y, z+abstand, x+abstand, y+hoehe-1, z+abstand, block)
-    mc.setBlocks(x+abstand, y, z+abstand, x+abstand, y+hoehe-1, z-abstand, block)
-    mc.setBlocks(x+abstand, y, z-abstand, x-abstand, y+hoehe-1, z-abstand, block)
+def wand_rundum(x, y, z, hoehe, abstand, block, specific = 0):
+    mc.setBlocks(x-abstand, y, z-abstand, x-abstand, y+hoehe-1, z+abstand, block, specific)
+    mc.setBlocks(x-abstand, y, z+abstand, x+abstand, y+hoehe-1, z+abstand, block, specific)
+    mc.setBlocks(x+abstand, y, z+abstand, x+abstand, y+hoehe-1, z-abstand, block, specific)
+    mc.setBlocks(x+abstand, y, z-abstand, x-abstand, y+hoehe-1, z-abstand, block, specific)
         
-def wand_rundum_mit_fenster(x, y, z, hoehe, abstand, block):
-    wand_rundum(x, y, z, hoehe, abstand, block)
+def wand_rundum_mit_fenster(x, y, z, hoehe, abstand, block, specific = 0):
+    wand_rundum(x, y, z, hoehe, abstand, block, specific)
     if hoehe >= 3:
         mc.setBlocks(x-abstand, y+1, z-abstand+1, x-abstand, y+hoehe-2, z+abstand-1, 20)
         mc.setBlocks(x-abstand+1, y+1, z+abstand, x+abstand-1, y+hoehe-2, z+abstand, 20)
@@ -96,11 +96,11 @@ def tuere_westen(x, y, z):
     
 # BODEN -------------------------------------------------------------------------------------
 
-def boden(x, y, z, laenge, breite, block):
-    mc.setBlocks(x, y, z, x+laenge-1, y, z+breite-1, block)
+def boden(x, y, z, laenge, breite, block, specific = 0):
+    mc.setBlocks(x, y, z, x+laenge-1, y, z+breite-1, block, specific)
 
-def boden_rundum(x, y, z, abstand, block):
-    mc.setBlocks(x-abstand, y, z-abstand, x+abstand-1, y, z+abstand-1, block)
+def boden_rundum(x, y, z, abstand, block, specific = 0):
+    mc.setBlocks(x-abstand, y, z-abstand, x+abstand-1, y, z+abstand-1, block, specific)
     
 # FENSTER -------------------------------------------------------------------------------------
 
@@ -132,17 +132,17 @@ def bloecke_setzen(x, y, z, x2, y2, z2, block, specific = 0):
     
 # DACH -------------------------------------------------------------------------------------
 
-def dach_rundum_der_spitze(x, y, z, hoehe, block):
+def dach_rundum_der_spitze(x, y, z, hoehe, block, specific = 0):
     for i in range(hoehe):
-        mc.setBlocks(x - i, y - i, z - i, x + i, y - i, z + i, block)
+        mc.setBlocks(x - i, y - i, z - i, x + i, y - i, z + i, block, specific)
         
-def dach(x, y, z, laenge, breite, block):
+def dach(x, y, z, laenge, breite, block, specific = 0):
     if laenge > breite:
         max_counter = breite
     else:
         max_counter = laenge
     for i in range(math.ceil(max_counter/2)):
-        mc.setBlocks(x + i, y + i, z + i, x + breite-1 - i, y + i, z + laenge-1 - i, block)
+        mc.setBlocks(x + i, y + i, z + i, x + breite-1 - i, y + i, z + laenge-1 - i, block, specific)
         
     
 
