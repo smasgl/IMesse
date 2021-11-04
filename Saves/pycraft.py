@@ -124,11 +124,11 @@ def fenster_rundum(x, y, z, hoehe, abstand):
 
 # BLOCK -------------------------------------------------------------------------------------
 
-def block_setzen(x, y, z, block):
-    mc.setBlock(x, y, z, block)
+def block_setzen(x, y, z, block, specific = 0):
+    mc.setBlock(x, y, z, block, specific)
     
-def bloecke_setzen(x, y, z, x2, y2, z2, block):
-    mc.setBlocks(x, y, z, x2, y2, z2, block)
+def bloecke_setzen(x, y, z, x2, y2, z2, block, specific = 0):
+    mc.setBlocks(x, y, z, x2, y2, z2, block, specific)
     
 # DACH -------------------------------------------------------------------------------------
 
