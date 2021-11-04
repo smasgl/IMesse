@@ -1,6 +1,27 @@
 import pycraft
-mc, block = pycraft.initialize()
+mc, block = pycraft.initialize(__file__[:-3])
 
+#pycraft.wand_vorne(0, 0, 0, 3, 5, block.WOOL.id)
+#pycraft.wand_seite(0, 0, 0, 3, 5, block.WOOL.id)
+#pycraft.baum(0, 0, 0)
+#pycraft.wand_rundum_mit_fenster(0, 0, 0, 4, 5, block.WOOD_PLANKS.id)
+#pycraft.baum(2, 0, 0)
+#pycraft.tuere_norden(0, 0, 5)
+
+#pycraft.wand_norden_mit_fenster(0, 0, 0, 3, 5, block.WOOL.id)
+#pycraft.wand_osten_mit_fenster(0, 0, 0, 3, 5, block.WOOD_PLANKS.id)
+#pycraft.wand_sueden_mit_fenster(0, 0, 0, 3, 5, block.WOOL.id)
+#pycraft.wand_westen_mit_fenster(0, 0, 0, 3, 5, block.WOOD_PLANKS.id)
+
+#pycraft.boden(0, 0, 0, 4,4, block.WOOD_PLANKS.id)
+
+#pycraft.(0,0,0,0,5,0, 1)
+
+#pycraft.dach_rundum_der_spitze(0,10,0,5,1)
+
+pycraft.dach(0,0,0,60,60,1)
+
+#pycraft.fenster_norden(0, 0, 0, 1, 1)
 
 # # Beispiel Code
 # # Boden Bauen:
