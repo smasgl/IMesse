@@ -8,7 +8,7 @@
 
 This is a library for the raspberry pi minecraft game.
 
-This is made for the iMesse fair in 2020.
+This is made for the iMesse fair in 2021.
 
 With this library each time the script is called, it launches the minecraft game and creates a new flat world.
 
